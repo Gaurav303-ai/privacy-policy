@@ -1,39 +1,692 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>TrackEase Privacy Policy</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — TruckMint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060E1F;
+  --surface:#0D1A35;
+  --card:#111F3C;
+  --border:#1B3055;
+  --green:#1A56DB;
+  --green-lt:#60A5FA;
+  --green-dk:#1D4ED8;
+  --white:#FFFFFF;
+  --body:#CBD5E1;
+  --muted:#94A3B8;
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--body);line-height:1.75;font-size:15px}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(6,14,31,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-icon{
+  width:32px;height:32px;border-radius:9px;
+  background:var(--green-lt);
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-icon svg{width:17px;height:17px;fill:#fff}
+.nav-name{font-size:16px;font-weight:700;color:var(--white)}
+.nav-name span{color:var(--green-lt)}
+.nav-date{font-size:12px;color:var(--muted)}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:64px 24px 48px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 45% at 50% 0%,#2563EB1A,transparent);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#2563EB15;border:1px solid #2563EB35;
+  color:var(--green-lt);font-size:11px;font-weight:600;
+  letter-spacing:1.8px;text-transform:uppercase;
+  padding:6px 14px;border-radius:30px;margin-bottom:18px;
+}
+.hero-badge .pulse{
+  width:6px;height:6px;border-radius:50%;background:var(--green);
+  animation:blink 1.8s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-size:clamp(26px,5vw,46px);font-weight:800;
+  color:var(--white);line-height:1.15;margin-bottom:12px;letter-spacing:-0.5px;
+}
+.hero h1 span{color:var(--green-lt)}
+.hero p{font-size:14px;color:var(--muted);max-width:480px;margin:0 auto}
+
+/* LAYOUT */
+.wrap{max-width:800px;margin:0 auto;padding:0 24px 80px}
+
+/* TOC */
+.toc{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;margin-bottom:40px;
+}
+.toc-label{
+  font-size:10px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--green-lt);margin-bottom:14px;
+}
+.toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+@media(max-width:500px){.toc ol{grid-template-columns:1fr}}
+.toc li a{
+  font-size:13px;color:var(--muted);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+  transition:color 0.15s;
+}
+.toc li a:hover{color:var(--green-lt)}
+.toc li a::before{
+  content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--green-lt);flex-shrink:0;opacity:0.6;
+}
+
+/* SECTIONS */
+.section{margin-bottom:44px;scroll-margin-top:80px}
+.section-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  padding-bottom:14px;border-bottom:1px solid var(--border);
+}
+.section-num{
+  width:32px;height:32px;border-radius:9px;
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;flex-shrink:0;
+}
+
+.section h2{font-size:17px;font-weight:700;color:var(--white)}
+
+/* CARDS */
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;margin-bottom:12px;
+}
+.card h3{
+  font-size:13px;font-weight:600;color:var(--green-lt);
+  text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;
+}
+
+/* LISTS */
+ul.dot{list-style:none;display:flex;flex-direction:column;gap:8px}
+ul.dot li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--body);
+}
+ul.dot li::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--green-lt);flex-shrink:0;margin-top:8px;
+}
+
+/* DATA TABLE */
+.data-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+@media(max-width:500px){.data-grid{grid-template-columns:1fr}}
+.data-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px;
+}
+.data-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:#2563EB18;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.data-icon svg{width:15px;height:15px;fill:var(--green-lt)}
+.data-item-text strong{display:block;font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
+.data-item-text span{font-size:12px;color:var(--muted)}
+
+/* NOT COLLECTED BOX */
+.not-collected{
+  background:#EF444410;border:1px solid #EF444428;
+  border-radius:var(--radius);padding:18px;
+}
+.not-collected-label{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;color:#FCA5A5;
+  text-transform:uppercase;letter-spacing:0.8px;margin-bottom:12px;
+}
+.not-collected-label svg{width:16px;height:16px;fill:#FCA5A5}
+.not-collected ul.dot li::before{background:#EF4444}
+.not-collected ul.dot li{color:#FECACA}
+
+/* HIGHLIGHT BOX */
+.highlight{
+  background:#2563EB10;border:1px solid #2563EB28;
+  border-left:3px solid var(--green-lt);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:16px 18px;margin:14px 0;
+  font-size:14px;color:var(--body);line-height:1.7;
+}
+.highlight strong{color:var(--white)}
+
+/* CONTACT CARD */
+.contact-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+  display:flex;align-items:center;gap:16px;
+  text-decoration:none;
+  transition:border-color 0.2s;
+}
+.contact-card:hover{border-color:var(--green-lt)}
+.contact-icon{
+  width:46px;height:46px;border-radius:12px;
+  background:#10B98120;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.contact-icon svg{width:22px;height:22px;fill:var(--green-lt)}
+.contact-card strong{display:block;font-size:14px;font-weight:600;color:var(--white);margin-bottom:3px}
+.contact-card span{font-size:13px;color:var(--muted)}
+
+/* SERVICE TABLE */
+.service-table{width:100%;border-collapse:collapse;font-size:13px}
+.service-table th{
+  text-align:left;padding:10px 14px;
+  font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--green);background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+.service-table td{
+  padding:12px 14px;border-bottom:1px solid var(--border);
+  color:var(--body);vertical-align:top;
+}
+.service-table tr:last-child td{border-bottom:none}
+.service-table tr:hover td{background:var(--card)}
+.svc-name{font-weight:600;color:var(--white);margin-bottom:2px}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:28px 24px;text-align:center;
+  font-size:12px;color:var(--muted);
+}
+footer a{color:var(--green);text-decoration:none}
+.footer-brand{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-bottom:10px;
+}
+.footer-brand .dot{
+  width:8px;height:8px;border-radius:50%;background:var(--green-lt);
+}
+
+/* LAST UPDATED CHIP */
+.updated-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:5px 12px;
+  font-size:12px;color:var(--muted);margin-bottom:32px;
+}
+.updated-chip svg{width:13px;height:13px;fill:var(--green-lt)}
+
+@media(max-width:500px){
+  .hero{padding:44px 20px 32px}
+  nav{padding:12px 16px}
+  .wrap{padding:0 16px 60px}
+}
+</style>
 </head>
-<body style="font-family: Arial; padding: 20px; line-height: 1.6;">
+<body>
 
-  <h1>Privacy Policy</h1>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6h-2v-6h-2v6h-2V10a2 2 0 012-2zM3 8h8a2 2 0 012 2v8H3V8zm2 4v4h6v-4H5zM1 18h14v2H1z"/></svg>
+    </div>
+    <span class="nav-name">Truck<span>Mint</span></span>
+  </a>
+  <span class="nav-date">Privacy Policy · June 27, 2026</span>
+</nav>
 
-  <p><strong>TrackEase Logistics Application</strong></p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="pulse"></span>Legal &amp; Privacy</div>
+  <h1>Privacy Policy<br/><span style="color:var(--green-lt)">TruckMint</span></h1>
+  <p>How we collect, use, and protect your information when you use the TruckMint fleet management platform.</p>
+</div>
 
-  <p>This Privacy Policy explains how TrackEase collects, uses, and protects your information when you use our application.</p>
+<div class="wrap">
 
-  <h2>1. Information We Collect</h2>
-  <ul>
-    <li>Name</li>
-    <li>Email address</li>
-    <li>Phone number</li>
-    <li>Location data (for trip tracking)</li>
-  </ul>
+  <!-- UPDATED CHIP -->
+  <div style="text-align:center">
+    <span class="updated-chip">
+      <svg viewBox="0 0 24 24" fill="#60A5FA"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      Last Updated: June 27, 2026
+    </span>
+  </div>
 
-  <h2>2. How We Use Your Information</h2>
-  <ul>
-    <li>To provide and improve our services</li>
-    <li>To manage driver and owner accounts</li>
-    <li>To track trips and logistics</li>
-  </ul>
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#s1">Introduction</a></li>
+      <li><a href="#s2">Information We Collect</a></li>
+      <li><a href="#s3">Authentication</a></li>
+      <li><a href="#s4">How We Use Your Information</a></li>
+      <li><a href="#s5">Analytics Disclaimer</a></li>
+      <li><a href="#s6">Information We Do NOT Collect</a></li>
+      <li><a href="#s7">Data Storage</a></li>
+      <li><a href="#s8">Sharing of Information</a></li>
+      <li><a href="#s9">Data Security</a></li>
+      <li><a href="#s10">Data Retention</a></li>
+      <li><a href="#s11">Account Deletion</a></li>
+      <li><a href="#s12">Children's Privacy</a></li>
+      <li><a href="#s13">Policy Changes</a></li>
+      <li><a href="#s14">Contact Us</a></li>
+    </ol>
+  </div>
 
-  <h2>3. Data Sharing</h2>
-  <p>We do not sell your personal data. Data is only used within the app for functionality.</p>
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Introduction</h2>
+    </div>
+    <p style="font-size:14px;margin-bottom:14px">
+      <strong style="color:#fff">TruckMint</strong> ("we", "our", or "us") is a transport and fleet management platform designed to help truck owners and drivers manage trips, expenses, settlements, and operational records.
+    </p>
+    <p style="font-size:14px;margin-bottom:14px">
+      This Privacy Policy explains how we collect, use, store, and protect your information when you use TruckMint.
+    </p>
+    <div class="highlight">
+      By using TruckMint, you <strong>agree to the practices</strong> described in this Privacy Policy.
+    </div>
+  </div>
 
-  <h2>4. Data Security</h2>
-  <p>We use secure systems to protect your data.</p>
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Information We Collect</h2>
+    </div>
 
-  <h2>5. Contact Us</h2>
-  <p>Email: your-email@example.com</p>
+    <div class="card">
+      <h3>Personal Information</h3>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4-1.3 4-4S14.7 4 12 4 8 5.3 8 8s1.3 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg></div>
+          <div class="data-item-text"><strong>Full Name</strong><span>First, middle &amp; last name</span></div>
+        </div>
+        <div class="data-item">
+          <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <div class="data-item-text"><strong>Email Address</strong><span>Used for authentication</span></div>
+        </div>
+        <div class="data-item">
+          <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+          <div class="data-item-text"><strong>Mobile Number</strong><span>10-digit registered number</span></div>
+        </div>
+        <div class="data-item">
+          <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg></div>
+          <div class="data-item-text"><strong>Vehicle Number</strong><span>Registration plate number</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Optional Uploads</h3>
+      <ul class="dot">
+        <li>Vehicle Registration Certificate (RC) images</li>
+        <li>Bill and Invoice images</li>
+        <li>Profile images</li>
+        <li>Other images uploaded by the user</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Operational Information</h3>
+      <ul class="dot">
+        <li>Trip information (routes, start/end dates, locations)</li>
+        <li>Maintenance and expense records</li>
+        <li>Trip settlement information</li>
+        <li>Driver and owner account information</li>
+        <li>Transport business records and operational data</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Authentication</h2>
+    </div>
+    <div class="card">
+      <ul class="dot">
+        <li>TruckMint uses <strong style="color:#fff">email and password authentication</strong> for account access.</li>
+        <li>Email verification is required during account creation.</li>
+        <li>This information is used solely for account authentication and security purposes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>How We Use Your Information</h2>
+    </div>
+    <div class="data-grid">
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <div class="data-item-text"><strong>Account Management</strong><span>Create &amp; manage your account</span></div>
+      </div>
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
+        <div class="data-item-text"><strong>Authentication</strong><span>Verify &amp; authenticate users</span></div>
+      </div>
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6h-2v-6h-2v6h-2V10a2 2 0 012-2zM3 8h8a2 2 0 012 2v8H3V8zm2 4v4h6v-4H5z"/></svg></div>
+        <div class="data-item-text"><strong>Trip &amp; Expense Management</strong><span>Manage trips &amp; settlements</span></div>
+      </div>
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5z"/></svg></div>
+        <div class="data-item-text"><strong>Document Storage</strong><span>Store uploaded images &amp; docs</span></div>
+      </div>
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2 2H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg></div>
+        <div class="data-item-text"><strong>Reports &amp; Insights</strong><span>Operational analytics</span></div>
+      </div>
+      <div class="data-item">
+        <div class="data-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
+        <div class="data-item-text"><strong>Security</strong><span>Prevent misuse &amp; fraud</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Business Analytics Disclaimer</h2>
+    </div>
+    <div class="highlight">
+      TruckMint is a transport management platform that provides business insights based <strong>solely on information entered by users</strong>.
+    </div>
+    <div class="card" style="margin-top:14px">
+      <ul class="dot">
+        <li>We do <strong style="color:#fff">not</strong> independently track, monitor, verify, or audit your business activities.</li>
+        <li>All analytics, reports, summaries, profit/loss calculations, and operational insights are generated only from information voluntarily entered by users.</li>
+        <li>Users are <strong style="color:#fff">responsible for the accuracy</strong> of the information they provide.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Information We Do NOT Collect</h2>
+    </div>
+    <div class="not-collected">
+      <div class="not-collected-label">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        We never collect the following
+      </div>
+      <ul class="dot">
+        <li>Current or background location data</li>
+        <li>Device contacts</li>
+        <li>SMS messages or call logs</li>
+        <li>Advertising identifiers (GAID / IDFA)</li>
+        <li>Microphone or camera data beyond optional uploads</li>
+        <li>Any data not explicitly listed in Section 2</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Data Storage</h2>
+    </div>
+    <p style="font-size:14px;margin-bottom:16px">Your information is stored using the following trusted third-party services:</p>
+    <table class="service-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Data Stored</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="svc-name">Firebase Authentication</div><span style="font-size:12px;color:var(--muted)">Google Firebase</span></td>
+          <td>User sign-in &amp; email verification</td>
+          <td>Email, hashed password, verification status</td>
+        </tr>
+        <tr>
+          <td><div class="svc-name">Cloud Firestore</div><span style="font-size:12px;color:var(--muted)">Google Firebase</span></td>
+          <td>Operational data storage</td>
+          <td>Profile info, trips, expenses, settlements, driver &amp; owner records</td>
+        </tr>
+        <tr>
+          <td><div class="svc-name">Cloudinary</div><span style="font-size:12px;color:var(--muted)">Cloudinary Inc.</span></td>
+          <td>Image &amp; document storage</td>
+          <td>Invoice images, bill images, RC documents, profile images</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Sharing of Information</h2>
+    </div>
+    <div class="highlight" style="margin-bottom:14px">
+      We do <strong>not sell, rent, or trade</strong> your personal information to any third party.
+    </div>
+    <div class="card">
+      <h3>We may share only when</h3>
+      <ul class="dot">
+        <li>Required by law or a valid legal process.</li>
+        <li>Necessary to protect our legal rights.</li>
+        <li>With our service providers (Firebase and Cloudinary) solely for operating the application — bound by their own privacy policies.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Data Security</h2>
+    </div>
+    <div class="card">
+      <ul class="dot">
+        <li>We take reasonable technical and organisational measures to protect your information.</li>
+        <li>All data is transmitted over HTTPS and stored in secure cloud infrastructure.</li>
+        <li>Access to user data is restricted to authorised systems only.</li>
+        <li>However, no method of transmission over the internet or electronic storage is completely secure. We cannot guarantee absolute security.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Data Retention</h2>
+    </div>
+    <div class="card">
+      <ul class="dot">
+        <li>We retain your information for as long as your account remains active.</li>
+        <li>Data may also be retained as required for operational or legal purposes.</li>
+        <li>Uploaded documents and records may remain stored until your account is deleted.</li>
+        <li>Upon verified account deletion, all associated data is permanently erased within <strong style="color:#fff">30 days</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>Account Deletion</h2>
+    </div>
+    <p style="font-size:14px;margin-bottom:16px">You may request permanent deletion of your account and all associated data at any time.</p>
+    <div class="card">
+      <h3>How to request deletion</h3>
+      <ul class="dot">
+        <li>Send an email to <strong style="color:#fff">truckmint.support@gmail.com</strong></li>
+        <li>Include your <strong style="color:#fff">registered email address</strong></li>
+        <li>Include your <strong style="color:#fff">registered mobile number</strong></li>
+        <li>Use the subject line: <strong style="color:#34D399">Account Deletion Request</strong></li>
+      </ul>
+    </div>
+    <div class="highlight" style="margin-top:14px">
+      Deletion requests are processed within <strong>30 days</strong>. After deletion, all personal data, trip records, expense records, and uploaded documents are permanently removed from our servers.
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>Children's Privacy</h2>
+    </div>
+    <div class="card">
+      <ul class="dot">
+        <li>TruckMint is intended for users who are <strong style="color:#fff">18 years of age or older</strong>.</li>
+        <li>We do not knowingly collect personal information from children under 18.</li>
+        <li>If you believe a child has provided us information, please contact us and we will delete it promptly.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <h2>Changes to This Privacy Policy</h2>
+    </div>
+    <div class="card">
+      <ul class="dot">
+        <li>We may update this Privacy Policy from time to time.</li>
+        <li>Any changes will be posted on this page along with an updated revision date at the top.</li>
+        <li>Continued use of TruckMint after changes constitutes your acceptance of the updated policy.</li>
+        <li>For significant changes, we will notify users via email or an in-app notification.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>Contact Us</h2>
+    </div>
+
+    <p style="font-size:14px;margin-bottom:20px;color:var(--body);">
+      If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data — including requests to access, correct, or delete your information — please contact us through any of the channels below.
+    </p>
+
+    <!-- Contact Us Page Link Banner -->
+    <a href="https://gaurav303-ai.github.io/contact" target="_blank" style="text-decoration:none;display:block;margin-bottom:16px;">
+      <div style="background:linear-gradient(135deg,#1A56DB18,#2563EB28);border:1px solid #2563EB40;border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#60A5FA'" onmouseout="this.style.borderColor='#2563EB40'">
+        <div style="width:44px;height:44px;border-radius:12px;background:#2563EB25;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#60A5FA"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:600;color:#60A5FA;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;">Support Center</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:2px;">Visit our Contact Us Page</div>
+          <div style="font-size:12px;color:var(--muted);">Submit queries, report issues, or request account deletion online</div>
+        </div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#60A5FA" opacity="0.6"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </div>
+    </a>
+
+    <!-- Email card -->
+    <a class="contact-card" href="mailto:truckmint.support@gmail.com">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <div>
+        <strong>Email Support</strong>
+        <span>truckmint.support@gmail.com</span>
+      </div>
+    </a>
+
+    <!-- Account Deletion Legal Box -->
+    <div style="margin-top:20px;background:#EF444412;border:1px solid #EF444430;border-left:3px solid #EF4444;border-radius:0 var(--radius) var(--radius) 0;padding:20px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#EF4444"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+        <span style="font-size:12px;font-weight:700;color:#FCA5A5;text-transform:uppercase;letter-spacing:1px;">Account &amp; Data Deletion Request</span>
+      </div>
+      <p style="font-size:14px;color:#FECACA;line-height:1.8;margin-bottom:14px;">
+        You have the right to request the permanent deletion of your TruckMint account and all associated personal data at any time, in accordance with applicable data protection laws.
+      </p>
+      <p style="font-size:14px;color:#FECACA;line-height:1.8;margin-bottom:16px;">
+        To exercise this right, please use one of the following methods:
+      </p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;background:#00000020;border-radius:10px;padding:12px 14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FCA5A5" style="flex-shrink:0;margin-top:2px;"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:2px;">Email Request</div>
+            <div style="font-size:12px;color:#FCA5A5;">Send an email to <strong>truckmint.support@gmail.com</strong> with subject: <strong>"Account Deletion Request"</strong> including your registered email and phone number.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;background:#00000020;border-radius:10px;padding:12px 14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FCA5A5" style="flex-shrink:0;margin-top:2px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:2px;">Online Form</div>
+            <div style="font-size:12px;color:#FCA5A5;">Visit our <a href="https://gaurav303-ai.github.io/contact" target="_blank" style="color:#FCA5A5;text-decoration:underline;font-weight:600;">Contact Us page</a> and submit a deletion request through the Account Deletion form.</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:#FCA5A5;line-height:1.7;border-top:1px solid #EF444428;padding-top:12px;">
+        ⏱ <strong style="color:#fff;">Processing Time:</strong> All verified deletion requests will be processed within <strong style="color:#fff;">30 days</strong> of receipt. Upon completion, your account, profile, trip records, expense data, uploaded documents, and all associated personal information will be permanently and irreversibly erased from our servers.
+      </p>
+    </div>
+
+    <!-- App Info Grid -->
+    <div style="margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">
+        <div><span style="color:var(--muted);display:block;margin-bottom:3px">Application Name</span><strong style="color:#fff">TruckMint</strong></div>
+        <div><span style="color:var(--muted);display:block;margin-bottom:3px">Developer</span><strong style="color:#fff">TrackEase Technologies</strong></div>
+        <div><span style="color:var(--muted);display:block;margin-bottom:3px">Platform</span><strong style="color:#fff">Android (Google Play)</strong></div>
+        <div><span style="color:var(--muted);display:block;margin-bottom:3px">Last Updated</span><strong style="color:#fff">June 27, 2026</strong></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="dot"></div>
+    <span style="font-weight:600;color:#fff">Truck<span style="color:#60A5FA">Mint</span></span>
+    <div class="dot"></div>
+  </div>
+  <p>© 2026 TrackEase Technologies · All rights reserved</p>
+  <p style="margin-top:6px">
+    <a href="mailto:truckmint.support@gmail.com" style="color:#60A5FA;">truckmint.support@gmail.com</a>
+  </p>
+  <p style="margin-top:10px;font-size:11px;color:#334155">
+    This privacy policy applies to the TruckMint Android application available on Google Play Store.
+  </p>
+</footer>
 
 </body>
 </html>
